@@ -1,0 +1,5 @@
+C:\Users\Meri\source\repos\MiniWeatherUI\MiniWeatherUI\bin\Release\net8.0-windows\publish\MiniWeatherUI.exe
+C:\Users\Meri\source\repos\MiniWeatherUI\MiniWeatherUI\bin\Release\net8.0-windows\publish\MiniWeatherUI.dll
+C:\Users\Meri\source\repos\MiniWeatherUI\MiniWeatherUI\bin\Release\net8.0-windows\publish\MiniWeatherUI.deps.json
+C:\Users\Meri\source\repos\MiniWeatherUI\MiniWeatherUI\bin\Release\net8.0-windows\publish\MiniWeatherUI.runtimeconfig.json
+C:\Users\Meri\source\repos\MiniWeatherUI\MiniWeatherUI\bin\Release\net8.0-windows\publish\MiniWeatherUI.pdb

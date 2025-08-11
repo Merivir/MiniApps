@@ -1,0 +1,92 @@
+﻿<Window x:Class="MiniWeatherUI.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Weather App" Height="320" Width="400"
+    
+        Background="#84C5E2" WindowStartupLocation="CenterScreen">
+
+    <Window.Resources>
+        <Style TargetType="Control">
+            <Setter Property="FontFamily" Value="pack://application:,,,/Jua/#Jua"/>
+        </Style>
+
+        <DropShadowEffect x:Key="CardShadow" Color="#000000" Opacity="0.25"
+                          BlurRadius="16" ShadowDepth="4"/>
+
+        <Style x:Key="RoundedTextBox" TargetType="TextBox">
+            <Setter Property="Background" Value="#A9D7EA"/>
+            <Setter Property="BorderThickness" Value="0"/>
+            <Setter Property="Padding" Value="12,0"/>
+            <Setter Property="FontSize" Value="14"/>
+            <Setter Property="HorizontalAlignment" Value="Center"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="TextBox">
+                        <Border CornerRadius="12" Background="{TemplateBinding Background}">
+                            <ScrollViewer x:Name="PART_ContentHost"/>
+                        </Border>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+
+        <Style x:Key="RoundedButton" TargetType="Button">
+            <Setter Property="Background" Value="#103B56"/>
+            <Setter Property="Foreground" Value="#CDE9F4"/>
+            <Setter Property="FontSize" Value="14"/>
+            <Setter Property="FontWeight" Value="SemiBold"/>
+            <Setter Property="BorderThickness" Value="0"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="Button">
+                        <Border x:Name="bd" CornerRadius="20" Background="{TemplateBinding Background}">
+                            <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center" Margin="12,8"/>
+                        </Border>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Setter TargetName="bd" Property="Background" Value="#0E3148"/>
+                            </Trigger>
+                            <Trigger Property="IsEnabled" Value="False">
+                                <Setter TargetName="bd" Property="Opacity" Value="0.6"/>
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+    </Window.Resources>
+
+    <Grid>
+        <Border Background="#6BB3D1"
+                CornerRadius="20"
+                Padding="20"
+                Width="340" Height="260"
+                HorizontalAlignment="Center"
+                VerticalAlignment="Center"
+                Effect="{StaticResource CardShadow}">
+
+            <StackPanel Margin="8" VerticalAlignment="Center">
+                <TextBlock Text="Mini Weather App"
+                           FontSize="22" Foreground="#103B56"
+                           HorizontalAlignment="Center" Margin="0,0,0,16"/>
+
+                <TextBox x:Name="CityTextBox" Style="{StaticResource RoundedTextBox}" Padding="10,3,10,0" Foreground="#103B56" Text="Enter your city (e.g. Yerevan)"
+                         Width="280" Height="35" HorizontalAlignment="Center" VerticalAlignment="Center" TextChanged="CityTextBox_TextChanged" GotFocus="CityTextBox_GotFocus" LostFocus="CityTextBox_LostFocus" />
+
+                <Button x:Name="GetButton" Content="Get Weather"
+                        Click="GetWeather_Click"
+                        Style="{StaticResource RoundedButton}"
+                        Width="160" Height="40" 
+                        HorizontalAlignment="Center" Margin="0,18,0,0"/> 
+
+                <Border x:Name="Card" Margin="0,16,0,0" Padding="12"
+                        Background="#A9D7EA" CornerRadius="12">
+                    <TextBlock x:Name="ResultTextBlock" FontSize="16" Foreground="#103B56"/>
+                </Border>
+
+                <ProgressBar x:Name="Loader" Height="4" Margin="0,10,0,0"
+                             IsIndeterminate="True" Visibility="Collapsed"/>
+            </StackPanel>
+        </Border>
+    </Grid>
+</Window>
